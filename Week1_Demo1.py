@@ -7,7 +7,7 @@ def fib(num):
         list_1.append(new)
         a=b
         b=new
-    print(list)
+    print(list_1)
 
 if __name__ == "__main__":
     num=int(input("Please Enter a Number:"))
