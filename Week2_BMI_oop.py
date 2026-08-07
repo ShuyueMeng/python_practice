@@ -4,6 +4,8 @@ class bmi:
         self.height=height
         self.weight=weight
         self.bmi=weight / height ** 2
+    def bmi_cal(self):
+        return self.weight / self.height ** 2
     def display(self):
         print(f'your BMI number is:{self.bmi}')
 
