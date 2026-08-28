@@ -20,6 +20,7 @@ class general(staff):
         self.rate_of_pay=rate_of_pay
     def show_publications(self):
         print(f"{self.name}'s pay rate is: {self.rate_of_pay}")
+        return self.rate_of_pay
 
 class academic(staff):
     def __init__(self,id, name,staff_id,tax_num,publications):
@@ -27,3 +28,11 @@ class academic(staff):
         self.publications=publications
     def show_publications(self):
         print(f"{self.name} has {self.publications} publications")
+        return self.publications
+
+if __name__ == "__main__":
+    staff_001=general(id="001",name="Jasper",staff_id="100",tax_num=10000,rate_of_pay=100)
+    print(staff_001.show_publications())
+
+    academic_001=academic(id="002",name="Ceecee",staff_id="101",tax_num=10000,publications=0)
+    print(academic_001.show_publications())
