@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" modified="2026-08-28T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="money-exchange-er" name="Money Exchange ER Diagram">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Money Exchange System — ER Diagram" style="text;html=1;align=center;verticalAlign=middle;fontStyle=1;fontSize=22;" vertex="1" parent="1"><mxGeometry x="340" y="20" width="420" height="40" as="geometry"/></mxCell>
+        <mxCell id="customers" value="&lt;b&gt;CUSTOMERS&lt;/b&gt;&lt;hr&gt;PK  customer_id&lt;br&gt;full_name&lt;br&gt;email (UNIQUE)&lt;br&gt;phone&lt;br&gt;created_at" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;spacingLeft=10;fontSize=14;" vertex="1" parent="1"><mxGeometry x="70" y="120" width="240" height="160" as="geometry"/></mxCell>
+        <mxCell id="currencies" value="&lt;b&gt;CURRENCIES&lt;/b&gt;&lt;hr&gt;PK  currency_code&lt;br&gt;currency_name&lt;br&gt;symbol&lt;br&gt;is_active" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;align=left;spacingLeft=10;fontSize=14;" vertex="1" parent="1"><mxGeometry x="70" y="410" width="240" height="140" as="geometry"/></mxCell>
+        <mxCell id="rates" value="&lt;b&gt;EXCHANGE_RATES&lt;/b&gt;&lt;hr&gt;PK  rate_id&lt;br&gt;FK  base_currency_code&lt;br&gt;FK  quote_currency_code&lt;br&gt;rate&lt;br&gt;effective_at" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;align=left;spacingLeft=10;fontSize=14;" vertex="1" parent="1"><mxGeometry x="450" y="105" width="250" height="175" as="geometry"/></mxCell>
+        <mxCell id="transactions" value="&lt;b&gt;EXCHANGE_TRANSACTIONS&lt;/b&gt;&lt;hr&gt;PK  transaction_id&lt;br&gt;FK  customer_id&lt;br&gt;FK  from_currency_code&lt;br&gt;FK  to_currency_code&lt;br&gt;FK  rate_id&lt;br&gt;from_amount · applied_rate&lt;br&gt;to_amount · transaction_fee&lt;br&gt;transacted_at" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;align=left;spacingLeft=10;fontSize=14;" vertex="1" parent="1"><mxGeometry x="450" y="380" width="250" height="235" as="geometry"/></mxCell>
+        <mxCell id="e1" value="1 : many (makes)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="customers" target="transactions"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e2" value="1 : many (base currency)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="currencies" target="rates"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e3" value="1 : many (from/to currency)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="currencies" target="transactions"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e4" value="1 : many (applied to)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;endFill=0;startArrow=ERone;startFill=0;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="rates" target="transactions"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
